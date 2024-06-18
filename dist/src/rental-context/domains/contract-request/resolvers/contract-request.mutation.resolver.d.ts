@@ -1,0 +1,30 @@
+import { UserOrmEntity } from '@infrastructure/database/entities/user.orm-entity';
+import { AcceptRequest } from '../commands/accept-request/accept-request.request.dto';
+import { AcceptRequestService } from '../commands/accept-request/accept-request.service';
+import { RejectRequest } from '../commands/reject-request/reject-request.request.dto';
+import { RejectRequestService } from '../commands/reject-request/reject-request.service';
+import { SendRequestEmailResponse } from '../commands/send-request-email/send-request-email-response.dto';
+import { SendRequestEmail } from '../commands/send-request-email/send-request-email.dto';
+import { SendRequestEmailService } from '../commands/send-request-email/send-request-email.service';
+import { SendBookingRequestStatusEmailResponse } from '../commands/send-request-status-email/send-request-status-email-response.dto';
+import { SendRequestStatusEmail } from '../commands/send-request-status-email/send-request-status-email.dto';
+import { SendBookingRequestStatusEmailService } from '../commands/send-request-status-email/send-request-status-email.service';
+import { SendRequest } from '../commands/send-request/send-request.request.dto';
+import { SendRequestService } from '../commands/send-request/send-request.service';
+import { ContractRequestAcceptResponse } from '../dtos/contract-request-accept.response.dto';
+import { ContractRequestResponse } from '../dtos/contract-request.response.dto';
+import { FindContractRequestService } from '../queries/find-contract-request/find-contract-request.service';
+export declare class ContractRequestMutationGraphqlResolver {
+    private readonly sendRequestService;
+    private readonly acceptRequestService;
+    private readonly rejectRequestService;
+    private readonly findById;
+    private readonly bookingRequestSent;
+    private readonly bookingRequestStatusSent;
+    constructor(sendRequestService: SendRequestService, acceptRequestService: AcceptRequestService, rejectRequestService: RejectRequestService, findById: FindContractRequestService, bookingRequestSent: SendRequestEmailService, bookingRequestStatusSent: SendBookingRequestStatusEmailService);
+    sendRequest(iam: UserOrmEntity, input: SendRequest): Promise<ContractRequestResponse>;
+    acceptRequest(iam: UserOrmEntity, input: AcceptRequest): Promise<ContractRequestAcceptResponse>;
+    rejectRequest(iam: UserOrmEntity, input: RejectRequest): Promise<ContractRequestResponse>;
+    sendRequestEmail(iam: UserOrmEntity, input: SendRequestEmail): Promise<SendRequestEmailResponse>;
+    sendRequestStatusEmail(iam: UserOrmEntity, input: SendRequestStatusEmail): Promise<SendBookingRequestStatusEmailResponse>;
+}

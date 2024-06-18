@@ -1,0 +1,35 @@
+import { ContractRepository } from '@domain-repositories/contract/contract.repository';
+import { PaymentTransactionRepository } from '@domain-repositories/payment-transaction/payment-transaction.repository';
+import { UserRepository } from '@domain-repositories/user/user.repository';
+import { CompleteCashOutInnopayTransactionProducer } from '@domains/innopay-transaction/bulls/sqs-producers/complete-cash-out-innopay-transaction.producer';
+import { PaymentTransactionEntity } from '@domains/payment-transaction/domain/entities/payment-transaction.entity';
+import { UnitOfWork } from '@infrastructure/database/unit-of-work/unit-of-work';
+import { PubSubService } from '@modules/graphql-subscriptions/pub-sub.service';
+import { PaymentTransactionPubSubEvent } from '@modules/graphql-subscriptions/types';
+import { ConfigService } from '@nestjs/config';
+import { CommandBus } from '@nestjs/cqrs';
+import { InnopayCashInService } from '@third-parties/innopay-payment/src/services/innopay-cash-in.service';
+import { InnopayCashOutService } from '@third-parties/innopay-payment/src/services/innopay-cash-out.service';
+import { Job } from 'bull';
+import { CancelTransactionJobPayload } from '../types';
+export declare class PaymentTransactionCancelProcessor {
+    private readonly innopayCashOutService;
+    private readonly innopayCashInService;
+    private readonly paymentTransactionRepository;
+    private readonly contractRepository;
+    private readonly userRepository;
+    private readonly completeCashOutInnopayTransactionProducer;
+    private readonly configService;
+    private readonly unitOfWork;
+    private commandBus;
+    private readonly pubSubService;
+    private isProduction;
+    constructor(innopayCashOutService: InnopayCashOutService, innopayCashInService: InnopayCashInService, paymentTransactionRepository: PaymentTransactionRepository, contractRepository: ContractRepository, userRepository: UserRepository, completeCashOutInnopayTransactionProducer: CompleteCashOutInnopayTransactionProducer, configService: ConfigService, unitOfWork: UnitOfWork, commandBus: CommandBus, pubSubService: PubSubService);
+    handle(job: Job<CancelTransactionJobPayload>): Promise<void>;
+    private startCashOut;
+    private endCashOut;
+    private finishCancelation;
+    private isCashOutInfoMatched;
+    publishPaymentTransaction(paymentTransaction: PaymentTransactionEntity, event: PaymentTransactionPubSubEvent): Promise<void>;
+    private publishContract;
+}

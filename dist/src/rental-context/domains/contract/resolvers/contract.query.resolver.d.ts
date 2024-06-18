@@ -1,0 +1,34 @@
+import { UserOrmEntity } from '@infrastructure/database/entities/user.orm-entity';
+import { TenantContractsPaginationResponse } from '../dtos/tenant-contracts-pagination.response';
+import { ContractLandlordModel, ContractTenantModel } from '../models/contract.model';
+import { FindContractRequest } from '../queries/find-contract/find-contract.request';
+import { LandlordActiveRentContractsService } from '../queries/landlord-active-rent-contracts/landlord-active-rent-contracts.service';
+import { LandlordContractService } from '../queries/landlord-contract/landlord-contract.service';
+import { TenantContractCancelationInfoRequest } from '../queries/tenant-contract-cancelation-info/tenant-contract-cancelation-info.request';
+import { TenantContractCancelationInfoResponse } from '../queries/tenant-contract-cancelation-info/tenant-contract-cancelation-info.response';
+import { TenantContractCancelationInfoService } from '../queries/tenant-contract-cancelation-info/tenant-contract-cancelation-info.service';
+import { TenantContractPaymentInfoRequest } from '../queries/tenant-contract-payment-info/tenant-contract-payment-info.request';
+import { TenantContractPaymentInfoResponse } from '../queries/tenant-contract-payment-info/tenant-contract-payment-info.response';
+import { TenantContractPaymentInfoService } from '../queries/tenant-contract-payment-info/tenant-contract-payment-info.service';
+import { TenantContractService } from '../queries/tenant-contract/tenant-contract.service';
+import { TenantLongTermRentContractsRequest } from '../queries/tenant-long-term-rent-contracts/tenant-long-term-rent-contracts.request.dto';
+import { TenantLongTermRentContractsService } from '../queries/tenant-long-term-rent-contracts/tenant-long-term-rent-contracts.service';
+import { TenantShortTermRentContractsRequest } from '../queries/tenant-short-term-rent-contracts/tenant-short-term-rent-contracts.request.dto';
+import { TenantShortTermRentContractsService } from '../queries/tenant-short-term-rent-contracts/tenant-short-term-rent-contracts.service';
+export declare class ContractQueryGraphqlResolver {
+    private readonly landlordActiveRentContractsService;
+    private readonly landlordContractService;
+    private readonly tenantContractService;
+    private readonly tenantLongTermRentContractsService;
+    private readonly tenantShortTermRentContractsService;
+    private readonly tenantContractPaymentInfoService;
+    private readonly tenantContractCancelationInfoService;
+    constructor(landlordActiveRentContractsService: LandlordActiveRentContractsService, landlordContractService: LandlordContractService, tenantContractService: TenantContractService, tenantLongTermRentContractsService: TenantLongTermRentContractsService, tenantShortTermRentContractsService: TenantShortTermRentContractsService, tenantContractPaymentInfoService: TenantContractPaymentInfoService, tenantContractCancelationInfoService: TenantContractCancelationInfoService);
+    landlordActiveRentContract(userId: UserOrmEntity['id'], input: FindContractRequest): Promise<ContractLandlordModel>;
+    tenantActiveRentContract(userId: UserOrmEntity['id'], input: FindContractRequest): Promise<ContractTenantModel>;
+    landlordActiveRentContracts(userId: UserOrmEntity['id']): Promise<ContractLandlordModel[]>;
+    tenantShortTermRentContracts(userId: UserOrmEntity['id'], input: TenantShortTermRentContractsRequest): Promise<TenantContractsPaginationResponse>;
+    tenantLongTermRentContracts(userId: UserOrmEntity['id'], input: TenantLongTermRentContractsRequest): Promise<TenantContractsPaginationResponse>;
+    tenantPaymentInfo(userId: UserOrmEntity['id'], input: TenantContractPaymentInfoRequest): Promise<TenantContractPaymentInfoResponse>;
+    tenantCancelationInfo(userId: UserOrmEntity['id'], input: TenantContractCancelationInfoRequest): Promise<TenantContractCancelationInfoResponse>;
+}

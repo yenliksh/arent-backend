@@ -1,0 +1,16 @@
+export declare const MINIMAL_UNIT_FACTOR = 100;
+export declare const LONG_RENT_PERIOD_MIN_COST: number;
+export declare const SHORT_RENT_PERIOD_MIN_COST: number;
+export declare const LONG_RENT_PERIOD_MAX_COST: number;
+export declare const SHORT_RENT_PERIOD_MAX_COST: number;
+export declare const SHORT_RENT_PARTIAL_ALLOWED_DAYS_BEFORE_ARRIVAL = 30;
+export declare const LONG_TERM_RENT_ARRIVAL_TIME = "14:00";
+export declare const LONG_TERM_RENT_DEPARTURE_TIME = "12:00";
+export declare const LIVIN_SHORT_TERM_RENT_SENDER_TAX_RATE = 0.12;
+export declare const LIVIN_SHORT_TERM_RENT_RECIPIENT_TAX_RATE = 0.03;
+export declare const LIVIN_LONG_TERM_RENT_SENDER_TAX_RATE = 0.08;
+export declare const LIVIN_LONG_TERM_RENT_RECIPIENT_TAX_RATE = 0;
+export declare const INNOPAY_CASH_IN_TAX_RATE = 0.027;
+export declare const INNOPAY_CASH_OUT_TAX_RATE = 0.013;
+export declare const PAYMENT_LIVIN_SENDER_NAME = "LIVIN";
+export declare const FINE_RATE = 0.2;

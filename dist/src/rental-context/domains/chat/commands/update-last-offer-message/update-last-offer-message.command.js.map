@@ -1,0 +1,1 @@
+{"version":3,"file":"update-last-offer-message.command.js","sourceRoot":"","sources":["../../../../../../../src/rental-context/domains/chat/commands/update-last-offer-message/update-last-offer-message.command.ts"],"names":[],"mappings":";;;AAGA,MAAa,6BAA6B;IACxC,YAAmC,MAAY,EAAkB,KAAqB;QAAnD,WAAM,GAAN,MAAM,CAAM;QAAkB,UAAK,GAAL,KAAK,CAAgB;IAAG,CAAC;CAC3F;AAFD,sEAEC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"admin-delete-apartment-identificator.command.js","sourceRoot":"","sources":["../../../../../../../../src/rental-context/domains/apartment-ad/commands/admins/admin-delete-apartment-identificator/admin-delete-apartment-identificator.command.ts"],"names":[],"mappings":";;;AAAA,MAAa,wCAAwC;IACnD,YAAmC,aAAqB;QAArB,kBAAa,GAAb,aAAa,CAAQ;IAAG,CAAC;CAC7D;AAFD,4FAEC"}

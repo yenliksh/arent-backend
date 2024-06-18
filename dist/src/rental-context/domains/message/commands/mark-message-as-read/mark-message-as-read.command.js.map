@@ -1,0 +1,1 @@
+{"version":3,"file":"mark-message-as-read.command.js","sourceRoot":"","sources":["../../../../../../../src/rental-context/domains/message/commands/mark-message-as-read/mark-message-as-read.command.ts"],"names":[],"mappings":";;;AAEA,MAAa,wBAAwB;IACnC,YAAmC,SAAe,EAAkB,MAAY;QAA7C,cAAS,GAAT,SAAS,CAAM;QAAkB,WAAM,GAAN,MAAM,CAAM;IAAG,CAAC;CACrF;AAFD,4DAEC"}

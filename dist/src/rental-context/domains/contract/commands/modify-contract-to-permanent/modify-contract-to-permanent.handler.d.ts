@@ -1,0 +1,32 @@
+import { ChatRepository } from '@domain-repositories/chat/chat.repository';
+import { ContractRequestRepository } from '@domain-repositories/contract-request/contract-request.repository';
+import { ContractRepository } from '@domain-repositories/contract/contract.repository';
+import { PaymentTransactionRepository } from '@domain-repositories/payment-transaction/payment-transaction.repository';
+import { TemporaryPaymentTransactionRepository } from '@domain-repositories/temporary-payment-transaction/temporary-payment-transaction.repository';
+import { UserRepository } from '@domain-repositories/user/user.repository';
+import { UnitOfWork } from '@infrastructure/database/unit-of-work/unit-of-work';
+import { PubSubService } from '@modules/graphql-subscriptions/pub-sub.service';
+import { CommandBus, ICommandHandler } from '@nestjs/cqrs';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { ModifyContractToPermanentCommand } from './modify-contract-to-permanent.command';
+export declare class ModifyContractToPermanentHandler implements ICommandHandler<ModifyContractToPermanentCommand> {
+    private readonly contractRepository;
+    private readonly contractRequestRepository;
+    private readonly temporaryPaymentTransactionRepository;
+    private readonly paymentTransactionRepository;
+    private readonly chatRepository;
+    private readonly userRepository;
+    private readonly pubSubService;
+    private commandBus;
+    private readonly unitOfWork;
+    private readonly eventEmitter;
+    constructor(contractRepository: ContractRepository, contractRequestRepository: ContractRequestRepository, temporaryPaymentTransactionRepository: TemporaryPaymentTransactionRepository, paymentTransactionRepository: PaymentTransactionRepository, chatRepository: ChatRepository, userRepository: UserRepository, pubSubService: PubSubService, commandBus: CommandBus, unitOfWork: UnitOfWork, eventEmitter: EventEmitter2);
+    execute(command: ModifyContractToPermanentCommand): Promise<void>;
+    private createPaymentTransactionByTemporary;
+    private sendSystemMessage;
+    private publishContract;
+    private publishMessage;
+    private publishPaymentTransaction;
+    private permanentInstantContractDown;
+    private permanentRequestContractDown;
+}

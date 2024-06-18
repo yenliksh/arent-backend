@@ -1,0 +1,60 @@
+import { CommandBus } from '@nestjs/cqrs';
+import { CrudController, CrudRequest } from '@nestjsx/crud';
+import { ApartmentAdMediaModel } from 'src/rental-context/domains/apartment-ad/models/sub-models/apartment-ad-media.model';
+import { RejectLongTermRentsRequestsDto } from './dtos/reject-long-term-rents-requests.dto';
+import { LongTermRentRequestTypeormEntity } from './entities/long-term-rent-request.typeorm-entity';
+import { LongTermRentRequestsAdminService } from './long-term-rent-requests-admin.service';
+export declare class LongTermRentRequestsAdminController implements CrudController<LongTermRentRequestTypeormEntity> {
+    service: LongTermRentRequestsAdminService;
+    private commandBus;
+    constructor(service: LongTermRentRequestsAdminService, commandBus: CommandBus);
+    get base(): CrudController<LongTermRentRequestTypeormEntity>;
+    getOne(req: CrudRequest): Promise<{
+        cost: number;
+        media: {
+            photos: ApartmentAdMediaModel[];
+            videos: ApartmentAdMediaModel[];
+        };
+        ownershipDocuments: string[] | undefined;
+        id: string;
+        landlordId: string;
+        longTermRentId: string;
+        apartmentCategory: import("../../../rental-context/domains/apartment-ad/domain/types").ApartmentCategory;
+        apartmentType: import("../../../rental-context/domains/apartment-ad/domain/types").ApartmentType;
+        numberOfGuests?: number | undefined;
+        numberOfRooms?: number | undefined;
+        country?: string | undefined;
+        city?: string | undefined;
+        street?: string | undefined;
+        region?: string | undefined;
+        houseNumber?: string | undefined;
+        lat?: number | undefined;
+        lng?: number | undefined;
+        description?: import("../../../rental-context/domains/apartment-ad/domain/value-objects/apartment-ad-description.value-object").ApartmentAdDescriptionProps | undefined;
+        rules?: import("../../../rental-context/domain-value-objects/apartment-rules.value-object").ApartmentRulesProps | undefined;
+        characteristics?: import("../../../rental-context/domain-value-objects/apartment-characteristics.value-object").ApartmentAdCharacteristicsProps | undefined;
+        cancellationPolicy?: import("../../../infrastructure/enums").LongTermRentCancellationPolicyType | undefined;
+        legalCapacityType: import("../../../rental-context/domains/apartment-ad/domain/types").LegalCapacityType;
+        legalCapacityTinBin?: string | undefined;
+        legalCapacityCompanyName?: string | undefined;
+        legalCapacityAddress?: string | undefined;
+        currency: import("../../../rental-context/domains/apartment-ad/domain/types").CurrencyType;
+        status: import("../../../rental-context/domains/apartment-ad/domain/types").ApartmentAdStatusType[];
+        isApproved: boolean;
+        declineReason?: string | undefined;
+        innopayCardId?: string | undefined;
+        defaultPaymentMethod?: import("../../../infrastructure/enums").PaymentMethod | undefined;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt?: Date | undefined;
+    } | undefined>;
+    getMany(req: CrudRequest): Promise<LongTermRentRequestTypeormEntity[] | {
+        data: LongTermRentRequestTypeormEntity[];
+        count: number;
+        total: number;
+        page: number;
+        pageCount: number;
+    } | undefined>;
+    approve(apartmentId: string): Promise<string>;
+    reject(apartmentId: string, dto: RejectLongTermRentsRequestsDto): Promise<string>;
+}

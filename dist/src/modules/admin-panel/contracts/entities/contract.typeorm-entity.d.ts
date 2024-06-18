@@ -1,0 +1,34 @@
+import { IGuests } from '@domain-value-objects/apartment-guests.value-object';
+import { ApartmentRulesProps } from '@domain-value-objects/apartment-rules.value-object';
+import { CurrencyType } from '@domains/apartment-ad/domain/types';
+import { IBaseApartmentAdData } from '@domains/contract/domain/value-objects/base-contract-apartment-ad-data.value-object';
+import { ContractOrmEntity } from '@infrastructure/database/entities/contract.orm-entity';
+import { ApartmentRentPeriodType, ContractStatus, LongTermRentCancellationPolicyType, ShortTermRentCancellationPolicyType } from '@infrastructure/enums';
+import { Model } from 'objection';
+declare type IContract = Omit<ContractOrmEntity, keyof Model>;
+export declare class ContractTypeormEntity implements IContract {
+    id: string;
+    contractRequestId: string;
+    rentPeriodVersionId: string;
+    tenantId?: string;
+    landlordId?: string;
+    apartmentAdId?: string;
+    apartmentRentPeriodType: ApartmentRentPeriodType;
+    cost: number;
+    currency: CurrencyType;
+    status: ContractStatus;
+    arrivalDate?: Date;
+    departureDate?: Date;
+    rules?: ApartmentRulesProps;
+    isPending: boolean;
+    isFined: boolean;
+    isTemporary: boolean;
+    shortTermCancellationPolicy?: ShortTermRentCancellationPolicyType;
+    longTermCancellationPolicy?: LongTermRentCancellationPolicyType;
+    baseApartmentAdData: IBaseApartmentAdData;
+    guests: IGuests;
+    createdAt: Date;
+    updatedAt: Date;
+    deletedAt?: Date;
+}
+export {};

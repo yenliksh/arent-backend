@@ -1,0 +1,13 @@
+{
+  "CONTRACT_NOT_FOUND": "Контракт не найден",
+  "CONTRACT_NOT_PENDING": "Контракт не находится в рассмотрении",
+  "APARTMENT_IS_NOT_FREE": "Квартира недоступна в текущие даты",
+  "CHAT_NOT_FOUND": "Чат не найден",
+  "CHAT_MEMBER_REQUIRED": "Необходимы участники чата",
+  "APARTMENT_AD_NOT_FOUND": "Объявление не найдено",
+  "ARRIVAL_AND_DEPARTURE_DATES_REQUIRED": "Необходимы даты въезда и выезда",
+  "INNOPAY_CARD_NOT_FOUND": "Карта Innopay не найдена",
+  "INVALID_ARGUMENTS_FOR_RENT_PERIOD_TYPE": "Невалидые аргументы для данного типа аренды",
+  "CONTRACT_REQUEST_NOT_FOUND": "Запрос не найден",
+  "LANDLORD_NOT_FOUND": "Владелец объявления не найден"
+}

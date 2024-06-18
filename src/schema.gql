@@ -1,0 +1,1875 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input AcceptContractOfferRequest {
+  cardId: String!
+  chatId: String!
+}
+
+input AcceptRequest {
+  contractRequestId: String!
+}
+
+enum AdComplaintType {
+  OBSCENE_CONTENT
+  OTHER
+  THERE_IS_AN_ERROR_IN_THE_AD
+  THIS_IS_A_FRAUD
+  THIS_PLACE_DOES_NOT_EXIST
+}
+
+input AddApartmentAdOwnershipDocumentRequest {
+  """apartmentId"""
+  id: String!
+  ownershipDocuments: [String!]!
+}
+
+input AddApartmentAdPaymentMethodRequest {
+  cardId: String!
+
+  """apartmentId"""
+  id: String!
+}
+
+type ApartmentAdAddressModel {
+  city: String!
+  country: String!
+  houseNumber: String!
+  lat: Float!
+  lng: Float!
+  region: String
+  street: String!
+}
+
+type ApartmentAdCharacteristicsModel {
+  ceilingHeight: Float
+  electricitySupply: String
+  floor: Float
+  gas: Boolean
+  gasSupply: String
+  heating: Boolean
+  landArea: Float
+  light: Boolean
+  objectArea: Float
+  objectPlacement: String
+  sewerage: Boolean
+  territoryArea: Float
+  totalArea: Float
+  ventilation: Boolean
+  water: Boolean
+  waterSupply: String
+  yearOfConstruction: Float
+}
+
+type ApartmentAdClusterInfoModel {
+  totalItems: Int!
+}
+
+type ApartmentAdClusterModel {
+  apartmentType: ApartmentType!
+  cost: String!
+
+  """does not need specify in MPV"""
+  currency: Currency!
+  id: String!
+  lat: Float!
+  lng: Float!
+  photo: String!
+  title: String!
+}
+
+type ApartmentAdComplaintResponse {
+  ok: Boolean!
+}
+
+type ApartmentAdDescriptionModel {
+  description: String
+  forFamily: Boolean
+  freeParking: Boolean
+  name: String!
+  quite: Boolean
+  remoteView: Boolean
+  selfCheckIn: Boolean
+  workSpace: Boolean
+}
+
+type ApartmentAdDetailsModel {
+  numberOfGuests: Int!
+  numberOfRooms: Int!
+}
+
+type ApartmentAdIdentificatorResponse {
+  apartmentId: String!
+  descriptionSeo: String!
+  keywordsSeo: String!
+  titleSeo: String!
+}
+
+type ApartmentAdIdsModel {
+  longTermRentId: String
+  shortTermRentId: String
+}
+
+type ApartmentAdLockedDatesModel {
+  endDate: String!
+  startDate: String!
+}
+
+type ApartmentAdLongTermRentModel {
+  apartmentAd: ApartmentAdModel!
+  apartmentAdId: String!
+  cancellationPolicy: LongTermRentCancellationPolicyType
+  cost: String!
+  createdAt: String!
+
+  """does not need specify in MPV"""
+  currency: Currency!
+  declineReason: String
+  deletedAt: String
+  id: String!
+  isApproved: Boolean!
+  ownershipDocuments: [String!]
+  status: [ApartmentAdStatusType!]!
+  updatedAt: String!
+}
+
+type ApartmentAdLongTermRentViewModel {
+  apartmentAd: ApartmentAdViewModel!
+  apartmentAdId: String!
+  cancellationPolicy: LongTermRentCancellationPolicyType
+  cost: String!
+  createdAt: String!
+
+  """does not need specify in MPV"""
+  currency: Currency!
+  declineReason: String
+  deletedAt: String
+  id: String!
+  isApproved: Boolean!
+  status: [ApartmentAdStatusType!]!
+  updatedAt: String!
+}
+
+type ApartmentAdMediaModel {
+  fileKey: String!
+  order: Float!
+}
+
+type ApartmentAdModel {
+  adCharacteristics: ApartmentAdCharacteristicsModel
+  adDescription: ApartmentAdDescriptionModel
+  address: ApartmentAdAddressModel
+  apartmentCategory: ApartmentCategory!
+  apartmentType: ApartmentType!
+  characteristics: ApartmentAdCharacteristicsModel
+  completeStep: Int!
+  createdAt: String!
+  defaultPaymentMethod: PaymentMethod
+  deletedAt: String
+  description: ApartmentAdDescriptionModel
+  details: ApartmentAdDetailsModel
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  innopayCardId: String
+  landlord: UserMeModel!
+  landlordId: String!
+  longTermRent: ApartmentAdLongTermRentModel
+  photos: [ApartmentAdMediaModel!]!
+  rentPeriodType: RentPeriodType!
+  rules: ApartmentAdRulesModel
+  shortTermRent: ApartmentAdShortTermRentModel
+  updatedAt: String!
+  videos: [ApartmentAdMediaModel!]!
+}
+
+type ApartmentAdResponse {
+  apartmentAd: ApartmentAdModel!
+}
+
+type ApartmentAdRulesModel {
+  allowedToHangingOut: Boolean!
+  allowedToSmoke: Boolean!
+  allowedWithChildren: Boolean!
+  allowedWithPets: Boolean!
+}
+
+type ApartmentAdShortTermRentModel {
+  apartmentAd: ApartmentAdModel!
+  apartmentAdId: String!
+  arrivalTime: String
+  bookingAccessInMonths: Int
+  cancellationPolicy: ShortTermRentCancellationPolicyType
+  cost: String!
+  createdAt: String!
+
+  """does not need specify in MPV"""
+  currency: Currency!
+  declineReason: String
+  deletedAt: String
+  departureTime: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isApproved: Boolean!
+  lockedDates: [ApartmentAdLockedDatesModel!]!
+  rentBookingType: ShortTermRentBookingType!
+  status: [ApartmentAdStatusType!]!
+  updatedAt: String!
+}
+
+type ApartmentAdShortTermRentViewModel {
+  apartmentAd: ApartmentAdViewModel!
+  apartmentAdId: String!
+  arrivalTime: String
+  bookingAccessInMonths: Int
+  cancellationPolicy: ShortTermRentCancellationPolicyType
+  cost: String!
+  createdAt: String!
+
+  """does not need specify in MPV"""
+  currency: Currency!
+  declineReason: String
+  deletedAt: String
+  departureTime: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isApproved: Boolean!
+  lockedDates: [ApartmentAdLockedDatesModel!]!
+  rentBookingType: ShortTermRentBookingType!
+  status: [ApartmentAdStatusType!]!
+  updatedAt: String!
+}
+
+type ApartmentAdSlugResponse {
+  adSearchId: Float!
+  titleSeo: String!
+}
+
+enum ApartmentAdStatusType {
+  ACTIVE
+  DRAFT
+  PAUSED
+  PROCESSING
+  PUBLISHED
+}
+
+type ApartmentAdTimeIntervalModel {
+  days: Float
+  hours: Float
+  milliseconds: Float
+  minutes: Float
+  seconds: Float
+}
+
+type ApartmentAdViewModel {
+  address: ApartmentAdAddressModel
+  apartmentCategory: ApartmentCategory!
+  apartmentType: ApartmentType!
+  characteristics: ApartmentAdCharacteristicsModel
+  contractRequests: [ContractRequestModel!]
+  createdAt: String!
+  defaultPaymentMethod: PaymentMethod
+  deletedAt: String
+  description: ApartmentAdDescriptionModel
+  details: ApartmentAdDetailsModel
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  landlord: UserModel!
+  landlordId: String!
+  longTermRent: ApartmentAdLongTermRentViewModel
+  photos: [ApartmentAdMediaModel!]!
+  rentPeriodType: RentPeriodType!
+  rules: ApartmentAdRulesModel
+  shortTermRent: ApartmentAdShortTermRentViewModel
+  updatedAt: String!
+  videos: [ApartmentAdMediaModel!]!
+}
+
+type ApartmentAdsSlugResponse {
+  slugs: [SlugModel!]!
+}
+
+type ApartmentAdsUnionResponse {
+  apartmentAdLongTermRent: [ApartmentAdLongTermRentModel!]!
+  apartmentAdShortTermRent: [ApartmentAdShortTermRentModel!]!
+}
+
+enum ApartmentCategory {
+  AREA
+  COMMERCIAL
+  COUNTRYHOUSE
+  FLAT
+  FOREIGN
+  HOUSE
+  INDUSTRIAL
+  OTHERREALESTATE
+}
+
+type ApartmentGuestsModel {
+  numberOfAdult: Int!
+  numberOfChildren: Int!
+  numberOfPets: Int!
+}
+
+enum ApartmentRentPeriodType {
+  LONG_TERM
+  SHORT_TERM
+}
+
+enum ApartmentRuleType {
+  ALLOWED_TO_HANGING_OUT
+  ALLOWED_TO_SMOKE
+  ALLOWED_WITH_CHILDREN
+  ALLOWED_WITH_PETS
+}
+
+enum ApartmentType {
+  APARTHOTEL
+  BEAUTYSALOON
+  CARSERVICE
+  COMMERCIAL
+  COTTAGE
+  COUNTRYCONSTRUCTION
+  FACTORY
+  FLAT
+  FREEAPPOINTMENT
+  GUESTHOUSE
+  HOSTEL
+  IHC
+  INDUSTRIALBASE
+  LANDFORGARDEN
+  LGX
+  MINI_HOTEL
+  OFFICE
+  OTHER
+  PC
+  PUBLICCATERING
+  ROOM
+  SHOP
+  STORAGE
+}
+
+type BaseContractAddressDataModel {
+  city: String!
+  country: String!
+  geoPoint: GeoPointModel!
+  houseNumber: String!
+  region: String
+  street: String!
+}
+
+type BaseContractApartmentAdDataModel {
+  address: BaseContractAddressDataModel!
+  title: String!
+}
+
+type BaseContractModel {
+  apartmentAdId: String
+  apartmentRentPeriodType: ApartmentRentPeriodType!
+  arrivalDate: String
+  baseApartmentAdData: BaseContractApartmentAdDataModel!
+  contractRequestId: String
+  cost: String!
+  createdAt: String!
+  currency: Currency!
+  deletedAt: String
+  departureDate: String
+  guests: ApartmentGuestsModel!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isPending: Boolean!
+  isTemporary: Boolean!
+  landlordId: String
+  longTermRentCancellationPolicyType: LongTermRentCancellationPolicyType
+  rules: ContractRulesModel
+  shortTermRentCancellationPolicyType: ShortTermRentCancellationPolicyType
+  status: ContractStatus!
+  tenantId: String
+  updatedAt: String!
+}
+
+type BaseOffsetPaginationInfoModel {
+  currentPage: Int!
+  limit: Int!
+  totalItems: Int!
+  totalPages: Int!
+}
+
+input BaseOffsetPaginationRequest {
+  limit: Int!
+  page: Int!
+}
+
+type BasePriceInfoModel {
+  max: String!
+  min: String!
+}
+
+input CancelContractByTenantRequest {
+  contractId: String!
+
+  """new departure date"""
+  departureDate: String
+}
+
+type CardMetaModel {
+  cardHolder: String!
+  cardType: String!
+  id: String!
+  panMasked: String!
+  paymentMethod: PaymentMethod!
+}
+
+input ChangeTenantPaymentMethodRequest {
+  cardId: String!
+  contractId: String!
+}
+
+type ChatIsNotActiveProblem {
+  message: String!
+}
+
+input ChatMessagesRequest {
+  beforeCursor: String
+  chatId: String!
+  limit: Int = 10
+}
+
+type ChatModel {
+  apartmentAdIds: ApartmentAdIdsModel!
+  apartmentAdPhotos: [ApartmentAdMediaModel!]
+  contract: ContractChatModel!
+  contractId: String!
+  createdAt: String!
+  deletedAt: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isActive: Boolean!
+  lastMessage: MessageModel
+  lastOfferMessageId: String
+  members: [UserModel!]!
+  unreadMessageCount: Int!
+  updatedAt: String!
+}
+
+type ChatPaginationResponse {
+  data: [ChatModel!]
+  isChatsExist: Boolean!
+  pageInfo: PageAfterCursorInfo
+}
+
+type ChosenDatesIsNotAvailableProblem {
+  message: String!
+}
+
+type ContractCancelationModel {
+  cancelationDate: String!
+  checkOutDate: String!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  contractId: String!
+  createdAt: String!
+  deletedAt: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  refundsAmountToSenderCost: String!
+  refundsAmountToSenderCurrency: String!
+  updatedAt: String!
+}
+
+type ContractChatModel {
+  apartmentAd: ApartmentAdViewModel
+  apartmentAdId: String
+  apartmentRentPeriodType: ApartmentRentPeriodType!
+  arrivalDate: String
+  baseApartmentAdData: BaseContractApartmentAdDataModel!
+  contractRequestId: String
+  cost: String!
+  createdAt: String!
+  currency: Currency!
+  deletedAt: String
+  departureDate: String
+  guests: ApartmentGuestsModel!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+
+  """for tenant only"""
+  innopayPaymentPageModel: InnopayPaymentPageModel
+  isPending: Boolean!
+  isTemporary: Boolean!
+  landlord: UserModel
+  landlordId: String
+  longTermRentCancellationPolicyType: LongTermRentCancellationPolicyType
+  rules: ContractRulesModel
+  shortTermRentCancellationPolicyType: ShortTermRentCancellationPolicyType
+  status: ContractStatus!
+  tenant: UserModel
+  tenantId: String
+  updatedAt: String!
+}
+
+type ContractLandlordModel {
+  apartmentAd: ApartmentAdModel
+  apartmentAdId: String
+  apartmentRentPeriodType: ApartmentRentPeriodType!
+  arrivalDate: String
+  baseApartmentAdData: BaseContractApartmentAdDataModel!
+  contractRequestId: String
+  cost: String!
+  createdAt: String!
+  currency: Currency!
+  deletedAt: String
+  departureDate: String
+  guests: ApartmentGuestsModel!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isPending: Boolean!
+  isTemporary: Boolean!
+  landlord: UserMeModel
+  landlordId: String
+  longTermRentCancellationPolicyType: LongTermRentCancellationPolicyType
+  nextPayment: NextPaymentInfoModel
+  nextPaymentTransactionId: String
+  rules: ContractRulesModel
+  shortTermRentCancellationPolicyType: ShortTermRentCancellationPolicyType
+  status: ContractStatus!
+  tenant: UserModel
+  tenantId: String
+  updatedAt: String!
+}
+
+type ContractOfferAlreadyExistsProblem {
+  message: String!
+}
+
+enum ContractPaymentStatusType {
+  CANCELED
+  RECURRING
+  RECURRING_COMPLETED
+  REFUND
+  SHORT_FULL
+  SHORT_PARTIAL
+}
+
+enum ContractPubSubEvent {
+  DELETED
+  UPDATED
+}
+
+enum ContractRentStatus {
+  COMPLETED
+  CONCLUDED
+}
+
+type ContractRequestAcceptResponse {
+  chatId: String
+  contractRequest: ContractRequestModel
+  problem: ContractRequestAlreadyExistsProblem
+}
+
+type ContractRequestAlreadyExistsProblem {
+  message: String!
+}
+
+type ContractRequestModel {
+  apartmentAd: ApartmentAdViewModel!
+  apartmentAdId: String
+  apartmentRentPeriodType: ApartmentRentPeriodType!
+  arrivalDate: String
+  comment: String
+  contract: BaseContractModel
+  createdAt: String!
+  deletedAt: String
+  departureDate: String
+  guests: ApartmentGuestsModel!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  rejectReason: String
+  status: ContractRequestStatus!
+  tenant: UserModel!
+  tenantId: String
+  updatedAt: String!
+}
+
+type ContractRequestPaginationResponse {
+  data: [ContractRequestModel!]
+  pageInfo: PageAfterCursorInfo
+}
+
+union ContractRequestProblems = ChosenDatesIsNotAvailableProblem | ContractRequestAlreadyExistsProblem | ReduceTheNumberOfGuestsProblem | SpecifyPaymentMethodProblem
+
+type ContractRequestResponse {
+  contractRequest: ContractRequestModel
+  problem: ContractRequestProblems
+}
+
+enum ContractRequestStatus {
+  ACCEPTED
+  CREATED
+  REJECTED
+}
+
+type ContractResponse {
+  contract: ContractChatModel
+  problem: ContractOfferAlreadyExistsProblem
+}
+
+type ContractRulesModel {
+  allowedToHangingOut: Boolean!
+  allowedToSmoke: Boolean!
+  allowedWithChildren: Boolean!
+  allowedWithPets: Boolean!
+}
+
+enum ContractStatus {
+  COMPLETED
+  CONCLUDED
+  CREATED
+  OFFERING
+  REJECTED
+}
+
+type ContractSubscriptionResponse {
+  contract: ContractChatModel
+  error: String
+  event: ContractPubSubEvent!
+}
+
+input ContractTemporaryConcludeRequest {
+  chatId: String!
+}
+
+input ContractTemporaryInstantConcludeRequest {
+  apartmentAdId: String!
+  arrivalDate: String!
+  comment: String
+  departureDate: String!
+  guests: GuestsInput!
+  rentPaymentType: ShortTermRentPaymentType!
+}
+
+type ContractTenantModel {
+  apartmentAd: ApartmentAdViewModel
+  apartmentAdId: String
+  apartmentRentPeriodType: ApartmentRentPeriodType!
+  arrivalDate: String
+  baseApartmentAdData: BaseContractApartmentAdDataModel!
+  contractCancelation: ContractCancelationModel
+  contractRequestId: String
+  cost: String!
+  createdAt: String!
+  currency: Currency!
+  deletedAt: String
+  departureDate: String
+  guests: ApartmentGuestsModel!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  innopayCard: InnopayCardModel
+  innopayCardId: String
+  isPending: Boolean!
+  isTemporary: Boolean!
+  landlord: UserModel
+  landlordId: String
+  longTermRentCancellationPolicyType: LongTermRentCancellationPolicyType
+  nextPayment: NextPaymentInfoModel
+  nextPaymentTransactionId: String
+  rules: ContractRulesModel
+  shortTermRentCancellationPolicyType: ShortTermRentCancellationPolicyType
+  status: ContractStatus!
+  tenant: UserMeModel
+  tenantId: String
+  updatedAt: String!
+}
+
+input CreateApartmentAdComplaintRequest {
+  """apartmentAdId"""
+  apartmentAdId: String!
+
+  """complaintType"""
+  cause: [AdComplaintType!]!
+
+  """reason"""
+  reason: String
+}
+
+input CreateApartmentAdIdentificatorRequest {
+  """uid"""
+  apartmentId: String!
+
+  """titleSeo"""
+  titleSeo: String!
+}
+
+input CreateApartmentAdRequest {
+  longTermRentCost: String
+  rentPeriodType: RentPeriodType!
+  shortTermRentCost: String
+}
+
+input CreateUserComplaintRequest {
+  """complaintType"""
+  cause: [UserComplaintType!]!
+
+  """reason"""
+  reason: String
+
+  """recipientUserId"""
+  recipientUserId: String!
+}
+
+enum Currency {
+  KZT
+  RUB
+  USD
+}
+
+input DateRangeInput {
+  """must be date ex. YYYY-MM-DD"""
+  endDate: String
+
+  """must be date ex. YYYY-MM-DD"""
+  startDate: String
+}
+
+input DeleteApartmentAdRequest {
+  """apartmentId"""
+  id: String!
+}
+
+input DeleteCardRequest {
+  cardId: String!
+}
+
+type DeletingCardIsActiveProblem {
+  message: String!
+}
+
+input EditApartmentAdAddressRequest {
+  city: String!
+  country: String!
+  houseNumber: String!
+
+  """apartmentId"""
+  id: String!
+  lat: Float!
+  lng: Float!
+  region: String
+  street: String!
+}
+
+input EditApartmentAdDescriptionRequest {
+  description: String!
+  forFamily: Boolean!
+  freeParking: Boolean!
+
+  """apartmentId"""
+  id: String!
+  name: String!
+  quite: Boolean!
+  remoteView: Boolean!
+  selfCheckIn: Boolean!
+  workSpace: Boolean!
+}
+
+input EditApartmentAdDetailsRequest {
+  ceilingHeight: Int
+  communications: [String!]
+  electricitySupply: String
+  floor: Int
+  gasSupply: String
+
+  """apartmentId"""
+  id: String!
+  landArea: Int
+  name: String
+  numberOfGuests: Int!
+
+  """0 equal studio apartment, 8 mean 8+ number of rooms"""
+  numberOfRooms: Int!
+  objectArea: Int
+  objectPlacement: String
+  territoryArea: Int
+  totalArea: Int
+  waterSupply: String
+  yearOfConstruction: Int
+}
+
+input EditApartmentAdImportantInfoRequest {
+  allowedToHangingOut: Boolean!
+  allowedToSmoke: Boolean!
+  allowedWithChildren: Boolean!
+  allowedWithPets: Boolean!
+
+  """only for short term rent period or all types"""
+  arrivalTime: String
+
+  """only for short term rent period or all types"""
+  cancellationPolicy: ShortTermRentCancellationPolicyType
+
+  """only for short term rent period or all types"""
+  departureTime: String
+
+  """apartmentId"""
+  id: String!
+
+  """only for short term rent period or all types"""
+  rentBookingType: ShortTermRentBookingType
+}
+
+input EditApartmentAdMediaRequest {
+  """apartmentId"""
+  id: String!
+  photos: [String!]!
+}
+
+input EditApartmentAdRequest {
+  """apartmentId"""
+  id: String!
+  longTermRentCost: String
+  rentPeriodType: RentPeriodType!
+  shortTermRentCost: String
+}
+
+input EditApartmentAdTypeRequest {
+  apartmentCategory: ApartmentCategory!
+  apartmentType: ApartmentType
+
+  """apartmentId"""
+  id: String!
+}
+
+input EditShortTermRentAvailabilitySettingsRequest {
+  bookingAccessInMonths: Int!
+
+  """apartmentId"""
+  id: String!
+  lockedDates: [LockedDateInput!]!
+}
+
+type EmailAlreadyUsedProblem {
+  message: String!
+}
+
+input FindApartmentAdIdentificatorRequest {
+  """id"""
+  id: String!
+}
+
+input FindApartmentAdsIdentificatorsRequest {
+  """id"""
+  ids: [String!]!
+}
+
+input FindChatRequest {
+  """chatId"""
+  id: String!
+}
+
+input FindContractRequest {
+  """contractId"""
+  id: String!
+}
+
+input FindContractRequestForLandlordRequest {
+  afterCursor: String
+  limit: Int = 10
+  type: ApartmentRentPeriodType!
+}
+
+input FindLongTermRentAdRequest {
+  """long term rent id"""
+  id: String!
+}
+
+type FindLongTermRentAdResponse {
+  averageResponseOnRequest: ApartmentAdTimeIntervalModel
+  data: ApartmentAdLongTermRentViewModel!
+}
+
+type FindLongTermRentAdsClusterResponse {
+  clusterInfo: ApartmentAdClusterInfoModel!
+  data: [ApartmentAdClusterModel!]!
+  slugs: [SlugModel!]!
+}
+
+input FindLongTermRentAdsFilterRequest {
+  apartmentCategory: ApartmentCategory
+  apartmentTypes: [ApartmentType!]
+  ceilingHeight: Int
+  communications: [String!]
+  electricitySupply: String
+  floor: Int
+  gasSupply: String
+  landArea: Int
+  location: LocationInput!
+  numberOfAdults: Int = 1
+  numberOfChild: Int
+  numberOfPets: Int
+
+  """0 equal studio apartment, 8 mean 8+ number of rooms"""
+  numberOfRooms: [Int!]
+  objectArea: Int
+  objectPlacement: String
+  priceRange: PriceRangeInput
+  rules: [ApartmentRuleType!]
+  territoryArea: Int
+  totalArea: Int
+  waterSupply: String
+  yearOfConstruction: Int
+}
+
+type FindLongTermRentAdsResponse {
+  data: [ApartmentAdLongTermRentViewModel!]
+  pageInfo: BaseOffsetPaginationInfoModel
+  priceInfo: BasePriceInfoModel!
+  slugs: [SlugModel!]!
+}
+
+input FindMyCardsRequest {
+  """choose card type"""
+  type: InnopayAppointmentCardType!
+}
+
+input FindShortTermRentAdRequest {
+  """short term rent id"""
+  id: String!
+}
+
+type FindShortTermRentAdResponse {
+  averageResponseOnRequest: ApartmentAdTimeIntervalModel
+  data: ApartmentAdShortTermRentViewModel!
+}
+
+type FindShortTermRentAdsClusterResponse {
+  clusterInfo: ApartmentAdClusterInfoModel!
+  data: [ApartmentAdClusterModel!]!
+  slugs: [SlugModel!]!
+}
+
+input FindShortTermRentAdsFilterRequest {
+  apartmentCategory: ApartmentCategory
+  apartmentTypes: [ApartmentType!]
+  arrivalTimeEnd: String
+  arrivalTimeStart: String
+  cancellationPolicyType: ShortTermRentCancellationPolicyType
+  ceilingHeight: Int
+  communications: [String!]
+  dateRange: DateRangeInput
+  departureTimeEnd: String
+  departureTimeStart: String
+  electricitySupply: String
+  floor: Int
+  gasSupply: String
+  landArea: Int
+  location: LocationInput!
+  numberOfAdults: Int = 1
+  numberOfChild: Int
+  numberOfPets: Int
+
+  """0 equal studio apartment, 8 mean 8+ number of rooms"""
+  numberOfRooms: [Int!]
+  objectArea: Int
+  objectPlacement: String
+  priceRange: PriceRangeInput
+  rentBookingType: ShortTermRentBookingType
+  rules: [ApartmentRuleType!]
+  territoryArea: Int
+  totalArea: Int
+  waterSupply: String
+  yearOfConstruction: Int
+}
+
+type FindShortTermRentAdsResponse {
+  data: [ApartmentAdShortTermRentViewModel!]
+  pageInfo: BaseOffsetPaginationInfoModel
+  priceInfo: BasePriceInfoModel!
+  slugs: [SlugModel!]!
+}
+
+enum GenderType {
+  FEMALE
+  MALE
+}
+
+type GeoPointModel {
+  lat: Float!
+  lng: Float!
+}
+
+type GuarantorModel {
+  firstName: String!
+  lastName: String!
+  phone: String!
+}
+
+input GuestsInput {
+  numberOfAdult: Int!
+  numberOfChildren: Int!
+  numberOfPets: Int!
+}
+
+enum IdentityStatusType {
+  APPROVED
+  NOT_CONFIRMED
+  PROCESSING
+  REJECTED
+}
+
+enum InnopayAppointmentCardType {
+  CHARGE_OFF
+  CREDITING
+}
+
+union InnopayBadRequestAndDeletingCardIsActiveProblem = DeletingCardIsActiveProblem | InnopayServiceBadRequestProblem
+
+type InnopayCardModel {
+  appointmentType: InnopayAppointmentCardType!
+  cardType: InnopayCardType!
+  cnpCardId: Float!
+  createdAt: String!
+  deletedAt: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  panMasked: String!
+  updatedAt: String!
+}
+
+type InnopayCardResponse {
+  ok: Boolean!
+  problem: InnopayBadRequestAndDeletingCardIsActiveProblem
+}
+
+enum InnopayCardType {
+  MASTERCARD
+  VISA
+}
+
+type InnopayPageUrlSubscriptionResponse {
+  contractId: String
+  startUrlDate: String!
+  url: String!
+}
+
+type InnopayPaymentPageModel {
+  startAt: String!
+  url: String!
+}
+
+type InnopayServiceBadRequestProblem {
+  message: String!
+}
+
+type InvalidVerificationPhoneCodeProblem {
+  message: String!
+}
+
+input LocationInput {
+  lat: Float!
+  lng: Float!
+  radiusInKm: Float!
+}
+
+input LockedDateInput {
+  """iso date ex. YYYY-MM-DD"""
+  endDate: String!
+
+  """iso date ex. YYYY-MM-DD"""
+  startDate: String!
+}
+
+enum LongPeriodTenantCheckOutCancelationType {
+  ALLOWED_REFUND
+  CANCELATION_BY_ADMIN
+  CHECK_OUT_GREATER_THAN_THIRTY_DAYS_NOTICE
+  CHECK_OUT_LESS_THAN_THIRTY_DAYS_NOTICE
+  NOT_ALLOWED_REFUND
+  PARTIAL_REFUND
+  REFUND_BEFORE_THIRTY_DAYS_ARRIVAL
+}
+
+enum LongTermRentCancellationPolicyType {
+  FORFEIT
+}
+
+type LongTermRentIsRentedProblem {
+  message: String!
+}
+
+input MarkMessageAsReadRequest {
+  id: String!
+}
+
+type MessageModel {
+  chatId: String!
+  contractData: SystemMessageDataModel
+  createdAt: String!
+  deletedAt: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  mediaName: String
+  mediaUrl: String
+  mediaWeight: Float
+  sender: UserModel
+  senderId: String
+  status: MessageStatus!
+  systemMessageType: SystemMessageType
+  text: String
+  transactionsMeta: [TransactionMetaModel!]!
+  type: MessageType!
+  updatedAt: String!
+}
+
+type MessagePayload {
+  data: [MessageModel!]
+  pageInfo: PageBeforeCursorInfo
+}
+
+type MessageResponse {
+  message: MessageModel
+  problem: ChatIsNotActiveProblem
+}
+
+enum MessageStatus {
+  FAILED
+  SENT
+  WAITING
+}
+
+enum MessageType {
+  MEDIA
+  SYSTEM
+  TEXT
+}
+
+type Mutation {
+  contractInstantBooking__byNewCard(input: ContractTemporaryInstantConcludeRequest!): ContractResponse!
+  contractOfferStatus__sendEmail(input: SendOfferStatusEmail!): SendContractOfferStatusEmailResponse!
+  contractOffer__accept(input: AcceptContractOfferRequest!): ContractResponse!
+  contractOffer__acceptByNewCard(input: ContractTemporaryConcludeRequest!): ContractResponse!
+  contractOffer__reject(input: RejectContractOfferRequest!): ContractResponse!
+  contractOffer__send(input: SendContractOfferRequest!): ContractResponse!
+  contractOffer__sendEmail(input: SendOfferEmail!): SendContractOfferEmailResponse!
+  contractTenantPaymentMethod__change(input: ChangeTenantPaymentMethodRequest!): InnopayCardModel!
+  contractTenant__cancel(input: CancelContractByTenantRequest!): ContractResponse!
+  contract_requestStatus__sendEmail(input: SendRequestStatusEmail!): SendBookingRequestStatusEmailResponse!
+  contract_request__accept(input: AcceptRequest!): ContractRequestAcceptResponse!
+  contract_request__reject(input: RejectRequest!): ContractRequestResponse!
+  contract_request__send(input: SendRequest!): ContractRequestResponse!
+  contract_request__sendEmail(input: SendRequestEmail!): SendRequestEmailResponse!
+  innopay_card__delete(input: DeleteCardRequest!): InnopayCardResponse!
+  innopay_card__save: SaveCardStartResponse!
+  message__mark_as_read(input: MarkMessageAsReadRequest!): Boolean!
+  message__send(input: SendMessageRequest!): MessageResponse!
+  paymentTransaction__tenant_manuallyPay(input: TenantManuallyPayRequest!): PaymentTransactionResponse!
+  rentAdIdentificator__create(input: CreateApartmentAdIdentificatorRequest!): ApartmentAdIdentificatorResponse!
+  rentAd__add_ownershipDocs(input: AddApartmentAdOwnershipDocumentRequest!): ApartmentAdResponse!
+  rentAd__add_paymentMethod(input: AddApartmentAdPaymentMethodRequest!): ApartmentAdResponse!
+  rentAd__create(input: CreateApartmentAdRequest!): ApartmentAdResponse!
+  rentAd__delete(input: DeleteApartmentAdRequest!): Boolean!
+  rentAd__edit(input: EditApartmentAdRequest!): ApartmentAdResponse!
+  rentAd__edit_address(input: EditApartmentAdAddressRequest!): ApartmentAdResponse!
+
+  """These settings only affect short-term rental ads"""
+  rentAd__edit_availabilitySettings(input: EditShortTermRentAvailabilitySettingsRequest!): ApartmentAdResponse!
+  rentAd__edit_description(input: EditApartmentAdDescriptionRequest!): ApartmentAdResponse!
+  rentAd__edit_details(input: EditApartmentAdDetailsRequest!): ApartmentAdResponse!
+  rentAd__edit_importantInfo(input: EditApartmentAdImportantInfoRequest!): ApartmentAdResponse!
+  rentAd__edit_media(input: EditApartmentAdMediaRequest!): ApartmentAdResponse!
+  rentAd__edit_type(input: EditApartmentAdTypeRequest!): ApartmentAdResponse!
+  rentAd__pause(input: PauseApartmentAdRequest!): ApartmentAdResponse!
+  rentAd__publish(input: PublishApartmentAdRequest!): PublishApartmentAdResponse!
+  rentAd__send_to_approve(input: SendToApproveApartmentAdRequest!): ApartmentAdResponse!
+  rentAd__shortTerm_switchRentBookingType(input: ShortTermSwitchRentBookingTypeRequest!): ApartmentAdResponse!
+  rent_ad_complaint__send(input: CreateApartmentAdComplaintRequest!): ApartmentAdComplaintResponse!
+  user__profile_addIdentityDocuments(input: ProfileAddIdentityDocumentRequest!): ProfileResponse!
+  user__profile_deleteAvatar: ProfileResponse!
+  user__profile_deleteGuarantor: ProfileResponse!
+  user__profile_editAvatar(input: ProfileEditAvatarRequest!): ProfileResponse!
+  user__profile_editEmail(input: ProfileEditEmailRequest!): ProfileEditEmailResponse!
+  user__profile_editGuarantor(input: ProfileEditGuarantorRequest!): ProfileResponse!
+  user__profile_editPersonalInfo(input: ProfileEditPersonalInfoRequest!): ProfileResponse!
+  user__profile_verificationEmailConfirm(input: ProfileConfirmVerificationEmailRequest!): ProfileResponse!
+  user__profile_verificationEmailSend: ProfileConfirmVerificationEmailResponse!
+
+  """Auth user by google, if user not registered yet, it does it"""
+  user__signInByGoogle_verifyToken(input: SignInByGoogleRequest!): SignInByGoogleResponse!
+
+  """
+  if token returns without user that mean that user is not exist, therefore user must be created through createUser
+  """
+  user__signInByPhone_confirmCode(input: SignInByPhoneConfirmCodeRequest!): SignInByPhoneConfirmCodeResponse!
+
+  """
+  send code to mobile phone, in development mode code will returns in response
+  """
+  user__signInByPhone_sendCode(input: SignInByPhoneSendCodeRequest!): SignInByPhoneSendCodeResponse!
+  user__signUpByPhone_createUser(input: SignUpByPhoneCreateUserRequest!): SignUpByPhoneCreateUserResponse!
+  user_complaint__send(input: CreateUserComplaintRequest!): UserComplaintResponse!
+}
+
+input MyApartmentAdRequest {
+  """apartmentId"""
+  id: String!
+}
+
+type MyApartmentAdStatusCountResponse {
+  ACTIVE: Int!
+  DRAFT: Int!
+  PAUSED: Int!
+  PROCESSING: Int!
+  PUBLISHED: Int!
+}
+
+input MyApartmentAdsRequest {
+  status: ApartmentAdStatusType!
+}
+
+input MyChatsRequest {
+  afterCursor: String
+  filter: String
+  limit: Int = 10
+  role: UserChatRole!
+}
+
+type NextPaymentInfoModel {
+  contractId: String!
+  createdAt: String!
+  deletedAt: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  updatedAt: String!
+  withdrawFundsDate: String!
+}
+
+input NextPaymentTransactionRequest {
+  paymentSearchType: PaymentHistorySearchType!
+}
+
+type PageAfterCursorInfo {
+  afterCursor: String
+  count: Float!
+  perPage: Float!
+}
+
+type PageBeforeCursorInfo {
+  beforeCursor: String
+  count: Float!
+  perPage: Float!
+}
+
+input PauseApartmentAdRequest {
+  """apartmentId"""
+  id: String!
+
+  """rentPeriodType"""
+  periodType: ApartmentRentPeriodType!
+}
+
+enum PaymentHistorySearchType {
+  RECURRING
+  SINGLE
+}
+
+type PaymentInvoiceModel {
+  cardMeta: CardMetaModel
+  createdAt: String!
+  deletedAt: String
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  invoiceDate: String!
+  isSuccess: Boolean!
+  paymentTransaction: PaymentTransactionModel!
+  paymentTransactionId: String!
+  refersToUserId: String!
+  type: PaymentInvoiceType!
+  updatedAt: String!
+}
+
+type PaymentInvoicePayload {
+  data: [PaymentInvoiceModel!]
+  pageInfo: PageAfterCursorInfo
+}
+
+enum PaymentInvoiceType {
+  RECEIVING
+  WITHDRAW
+}
+
+input PaymentInvoicesHistoryRequest {
+  afterCursor: String
+  limit: Int = 10
+  paymentSearchType: PaymentHistorySearchType!
+}
+
+enum PaymentMethod {
+  INNOPAY
+}
+
+type PaymentTransactionModel {
+  contract: BaseContractModel!
+  contractId: String!
+  cost: String!
+  createdAt: String!
+  currency: Currency!
+  deletedAt: String
+  endDate: String!
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isReadyToPay: Boolean!
+  recipientTaxRate: Float!
+  rentDays: Int!
+  senderTaxRate: Float!
+  startDate: String!
+  status: PaymentTransactionStatus!
+  taxAmount: String!
+  totalAmountPayable: String!
+  totalAmountToBeTransferred: String!
+  updatedAt: String!
+  withdrawFundsDate: String!
+}
+
+enum PaymentTransactionPubSubEvent {
+  DELETED
+  UPDATED
+}
+
+type PaymentTransactionResponse {
+  paymentTransaction: PaymentTransactionModel
+  problem: InnopayServiceBadRequestProblem
+}
+
+enum PaymentTransactionStatus {
+  CANCELED
+  CASH_IN_WAITING
+  CASH_OUT_WAITING
+  COMPLETED
+}
+
+type PaymentTransactionSubscriptionResponse {
+  event: PaymentTransactionPubSubEvent!
+  paymentTransaction: PaymentTransactionModel!
+}
+
+input PriceRangeInput {
+  max: String
+  min: String
+}
+
+input ProfileAddIdentityDocumentRequest {
+  identityDocuments: [String!]!
+}
+
+input ProfileConfirmVerificationEmailRequest {
+  token: String!
+}
+
+type ProfileConfirmVerificationEmailResponse {
+  ok: Boolean!
+}
+
+input ProfileEditAvatarRequest {
+  avatar: String
+}
+
+input ProfileEditEmailRequest {
+  email: String!
+}
+
+type ProfileEditEmailResponse {
+  problem: EmailAlreadyUsedProblem
+  user: UserMeModel
+}
+
+input ProfileEditGuarantorRequest {
+  firstName: String!
+  lastName: String!
+  phone: String!
+}
+
+input ProfileEditPersonalInfoRequest {
+  birthdate: String
+  firstName: String
+  gender: GenderType
+  lastName: String
+  middleName: String
+}
+
+type ProfileResponse {
+  user: UserMeModel!
+}
+
+input PublishApartmentAdRequest {
+  """apartmentId"""
+  id: String!
+
+  """rentPeriodType"""
+  periodType: ApartmentRentPeriodType!
+}
+
+type PublishApartmentAdResponse {
+  apartmentAd: ApartmentAdModel
+  problem: LongTermRentIsRentedProblem
+}
+
+type Query {
+  chat__byId(input: FindChatRequest!): ChatModel!
+  chat__messages(input: ChatMessagesRequest!): MessagePayload!
+  chat__myChats(input: MyChatsRequest!): ChatPaginationResponse!
+  contractRequest__forLandlord(input: FindContractRequestForLandlordRequest!): ContractRequestPaginationResponse!
+  contract__landlord_activeRents: [ContractLandlordModel!]!
+  contract__landlord_find(input: FindContractRequest!): ContractLandlordModel!
+  contract__tenant_cancelationInfo(input: TenantContractCancelationInfoRequest!): TenantContractCancelationInfoResponse!
+  contract__tenant_find(input: FindContractRequest!): ContractTenantModel!
+  contract__tenant_longTermRents(input: TenantLongTermRentContractsRequest!): TenantContractsPaginationResponse!
+  contract__tenant_paymentInfo(input: TenantContractPaymentInfoRequest!): TenantContractPaymentInfoResponse!
+  contract__tenant_shortTermRents(input: TenantShortTermRentContractsRequest!): TenantContractsPaginationResponse!
+  innopay__my_cards(input: FindMyCardsRequest): [InnopayCardModel!]!
+  innopay__tenant_contractCard(input: TenantContractCardRequest!): InnopayCardModel!
+  paymentTransaction_historyInvoice(input: PaymentInvoicesHistoryRequest!): PaymentInvoicePayload!
+  paymentTransaction_paymentNext(input: NextPaymentTransactionRequest!): [PaymentTransactionModel!]!
+  rentAdIdentificator__find(input: FindApartmentAdIdentificatorRequest!): ApartmentAdIdentificatorResponse!
+  rentAdIdentificator__findByRentId(input: FindApartmentAdIdentificatorRequest!): ApartmentAdSlugResponse!
+  rentAdIdentificators__findByRentIds(input: FindApartmentAdsIdentificatorsRequest!): ApartmentAdsSlugResponse!
+  rentAd__find_longTermAd(input: FindLongTermRentAdRequest!): FindLongTermRentAdResponse
+  rentAd__find_longTermAdByApId(input: FindLongTermRentAdRequest!): FindLongTermRentAdResponse
+  rentAd__find_longTermAds(filter: FindLongTermRentAdsFilterRequest!, pagination: BaseOffsetPaginationRequest!): FindLongTermRentAdsResponse!
+  rentAd__find_longTermAdsCluster(filter: FindLongTermRentAdsFilterRequest!): FindLongTermRentAdsClusterResponse!
+  rentAd__find_shortTermAdByApartmentId(input: FindShortTermRentAdRequest!): FindShortTermRentAdResponse
+  rentAd__find_shortTermAds(filter: FindShortTermRentAdsFilterRequest!, pagination: BaseOffsetPaginationRequest!): FindShortTermRentAdsResponse!
+  rentAd__find_shortTermAdsCluster(filter: FindShortTermRentAdsFilterRequest!): FindShortTermRentAdsClusterResponse!
+  rentAd__find_shortTermRentAd(input: FindShortTermRentAdRequest!): FindShortTermRentAdResponse
+  rentAd__myRentAd(input: MyApartmentAdRequest!): ApartmentAdModel!
+  rentAd__myRentAd_statusCount: MyApartmentAdStatusCountResponse!
+  rentAd__myRentAd_unionRentPeriods(input: MyApartmentAdsRequest!): ApartmentAdsUnionResponse!
+  user__me: UserMeModel!
+}
+
+type ReduceTheNumberOfGuestsProblem {
+  message: String!
+}
+
+input RejectContractOfferRequest {
+  chatId: String!
+}
+
+input RejectRequest {
+  contractRequestId: String!
+  reason: String!
+}
+
+enum RentPeriodStrategyType {
+  LONG_TERM_RENT
+  MIDDLE_TERM_RENT
+  SHORT_TERM_RENT
+}
+
+enum RentPeriodType {
+  ALL
+  LONG_TERM
+  SHORT_TERM
+}
+
+type SaveCardStartResponse {
+  ok: Boolean!
+  problem: InnopayServiceBadRequestProblem
+  url: String
+}
+
+type SendBookingRequestStatusEmailResponse {
+  ok: Boolean!
+}
+
+type SendContractOfferEmailResponse {
+  ok: Boolean!
+}
+
+input SendContractOfferRequest {
+  allowedToHangingOut: Boolean!
+  allowedToSmoke: Boolean!
+  allowedWithChildren: Boolean!
+  allowedWithPets: Boolean!
+
+  """only for short term rent period"""
+  arrivalDate: String
+  chatId: String!
+}
+
+type SendContractOfferStatusEmailResponse {
+  ok: Boolean!
+}
+
+input SendMessageRequest {
+  chatId: String!
+  id: String!
+  mediaName: String
+  mediaUrl: String
+  mediaWeight: Float
+  text: String
+
+  """
+  Without SYSTEM (only TEXT or MEDIA) becourse Only the system can send system messages, so they're not here
+  """
+  type: MessageType!
+}
+
+input SendOfferEmail {
+  recipientId: String!
+}
+
+input SendOfferStatusEmail {
+  isLandLord: Boolean!
+  recipientId: String!
+}
+
+input SendRequest {
+  apartmentAdId: String!
+  apartmentRentPeriodType: ApartmentRentPeriodType!
+
+  """only for short term rent period"""
+  arrivalDate: String
+
+  """only for instant booking"""
+  cardId: String
+  comment: String
+
+  """only for short term rent period"""
+  departureDate: String
+  guests: GuestsInput!
+
+  """only for short term rent period"""
+  rentBookingType: ShortTermRentBookingType
+
+  """only for short term rent period"""
+  rentPaymentType: ShortTermRentPaymentType
+}
+
+input SendRequestEmail {
+  recipientId: String!
+}
+
+type SendRequestEmailResponse {
+  ok: Boolean!
+}
+
+input SendRequestStatusEmail {
+  recipientId: String!
+}
+
+type SendSmsCodeRestrictionProblem {
+  message: String!
+}
+
+input SendToApproveApartmentAdRequest {
+  """apartmentId"""
+  id: String!
+}
+
+enum ShortTermRentBookingType {
+  INSTANT
+  REQUEST
+}
+
+enum ShortTermRentCancellationPolicyType {
+  FLEXIBLE
+  INFLEXIBLE
+  MODERATE
+  STRICT
+}
+
+enum ShortTermRentPaymentType {
+  FULL
+  PARTIAL
+}
+
+input ShortTermSwitchRentBookingTypeRequest {
+  """apartmentId"""
+  id: String!
+}
+
+input SignInByGoogleRequest {
+  accessToken: String!
+}
+
+type SignInByGoogleResponse {
+  problem: UndefinedReturnGoogleOauthProblem
+  refreshToken: String
+  token: String
+  user: UserMeModel
+}
+
+input SignInByPhoneConfirmCodeRequest {
+  phone: String!
+  smscode: String!
+}
+
+type SignInByPhoneConfirmCodeResponse {
+  problem: InvalidVerificationPhoneCodeProblem
+  refreshToken: String
+  token: String
+  user: UserMeModel
+}
+
+input SignInByPhoneSendCodeRequest {
+  phone: String!
+}
+
+type SignInByPhoneSendCodeResponse {
+  ok: Boolean!
+  problem: SendSmsCodeRestrictionProblem
+  smscode: String
+}
+
+input SignUpByPhoneCreateUserRequest {
+  birthDate: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+}
+
+type SignUpByPhoneCreateUserResponse {
+  problem: EmailAlreadyUsedProblem
+  refreshToken: String
+  token: String
+  user: UserMeModel
+}
+
+type SlugModel {
+  apartmentId: String!
+  id: String!
+  slug: String!
+}
+
+type SpecifyPaymentMethodProblem {
+  message: String!
+}
+
+type Subscription {
+  innopayPageUrl: InnopayPageUrlSubscriptionResponse!
+  newMessage(userChatRole: UserChatRole!): MessageModel!
+  updateContract: ContractSubscriptionResponse!
+  updatePaymentTransaction: PaymentTransactionSubscriptionResponse!
+}
+
+type SystemMessageDataModel {
+  apartmentRentPeriodType: ApartmentRentPeriodType
+  arrivalDate: String
+  comment: String
+  cost: String
+  departureDate: String
+  longTermRentCancellationPolicyType: LongTermRentCancellationPolicyType
+  rules: ApartmentAdRulesModel
+  shortTermRentBookingType: ShortTermRentBookingType
+  shortTermRentCancellationPolicyType: ShortTermRentCancellationPolicyType
+  shortTermRentPaymentType: ShortTermRentPaymentType
+  status: ContractStatus!
+}
+
+enum SystemMessageType {
+  BOOKING_CONCLUDED
+  BOOKING_CREATED
+  INSTANT_BOOKING
+  OFFER_REJECTED
+  OFFER_REJECTED_BY_SYSTEM
+  OFFER_SENDING
+  TEMPORARY_BOOKING_REVOKE
+}
+
+input TenantContractCancelationInfoRequest {
+  """local checkout date in ISO ex. YYYY-MM-DD"""
+  checkoutDate: String
+
+  """contractId"""
+  id: String!
+}
+
+type TenantContractCancelationInfoResponse {
+  cancelationDate: String!
+  checkOutDate: String!
+  checkoutType: LongPeriodTenantCheckOutCancelationType
+
+  """recomputed withdrawal for last stay month"""
+  recomputedLastStayWithdrawalAmount: String
+
+  """money which will bee refund"""
+  refundsAmount: String!
+  strategyType: RentPeriodStrategyType!
+
+  """money which will bee withdrawal"""
+  withdrawalAmount: String
+}
+
+input TenantContractCardRequest {
+  """contractId"""
+  id: String!
+}
+
+input TenantContractPaymentInfoRequest {
+  """contractId"""
+  id: String!
+}
+
+type TenantContractPaymentInfoResponse {
+  accommodationAvailableDate: String
+  cancellationDate: String
+  dateOfNextCharge: String
+  paidAmount: String!
+  payableAmount: String!
+  payableAmountOfNextCharge: String
+  refundsAmount: String!
+  totalAmount: String!
+  type: ContractPaymentStatusType!
+}
+
+type TenantContractsPaginationResponse {
+  data: [ContractTenantModel!]
+  pageInfo: PageAfterCursorInfo
+}
+
+input TenantLongTermRentContractsRequest {
+  afterCursor: String
+  limit: Int = 10
+  type: ContractRentStatus!
+}
+
+input TenantManuallyPayRequest {
+  id: String!
+}
+
+input TenantShortTermRentContractsRequest {
+  afterCursor: String
+  limit: Int = 10
+  type: ContractRentStatus!
+}
+
+type TransactionMetaModel {
+  endDate: String!
+  id: String!
+  startDate: String!
+  status: PaymentTransactionStatus!
+  withdrawFundsDate: String!
+}
+
+type UndefinedReturnGoogleOauthProblem {
+  message: String!
+}
+
+enum UserChatRole {
+  LANDLORD
+  TENANT
+}
+
+type UserComplaintResponse {
+  ok: Boolean!
+}
+
+enum UserComplaintType {
+  I_THINK_THEY_ARE_DECEIVING
+  OTHER
+  THIS_IS_SPAM
+  THIS_USER_IS_BEHAVING_INDECENTLY
+}
+
+type UserEmailNotificationModel {
+  adApproved: Boolean!
+  adRejected: Boolean!
+  bookingRequest: Boolean!
+  businessTrains: Boolean!
+  contractConcluded: Boolean!
+  newMessages: Boolean!
+  recurringPaymentFailure: Boolean!
+  recurringPaymentSuccess: Boolean!
+  reminderNeedToPayRent: Boolean!
+}
+
+type UserMeModel {
+  avatarKey: String
+  birthDate: String
+  createdAt: String!
+  deletedAt: String
+  email: String!
+  emailNotification: UserEmailNotificationModel!
+  firstName: String!
+  gender: GenderType
+  guarantors: [GuarantorModel!]
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  identityDocuments: [String!]
+  identityRejectReason: String
+  identityStatus: IdentityStatusType!
+  isEmailVerified: Boolean!
+  isIdentityApproved: Boolean!
+  isPhoneApproved: Boolean!
+  lastName: String!
+  middleName: String
+  phone: String
+  pushNotification: UserPushNotificationModel!
+  smsNotification: UserSmsNotificationModel!
+  updatedAt: String!
+}
+
+type UserModel {
+  avatarKey: String
+  birthDate: String
+  createdAt: String!
+  deletedAt: String
+  firstName: String!
+  gender: GenderType
+
+  """ex. 2cdc8ab1-6d50-49cc-ba14-54e4ac7ec231"""
+  id: String!
+  isEmailVerified: Boolean!
+  isIdentityApproved: Boolean!
+  isPhoneApproved: Boolean!
+  lastName: String!
+  middleName: String
+  updatedAt: String!
+}
+
+type UserPushNotificationModel {
+  adApproved: Boolean!
+  adRejected: Boolean!
+  adRemovedByAdmin: Boolean!
+  adStatusUpdatedByAdmin: Boolean!
+  adUpdatedByAdmin: Boolean!
+  bookingRequestAccepted: Boolean!
+  bookingRequestSent: Boolean!
+  bookingRequestUpdated: Boolean!
+  changesInPassportDetails: Boolean!
+  contractCompleted: Boolean!
+  contractConcluded: Boolean!
+  contractOfferSent: Boolean!
+  contractOfferUpdated: Boolean!
+  contractRejectedByAdmin: Boolean!
+  newMessages: Boolean!
+  recurringPaymentFailure: Boolean!
+  recurringPaymentSuccess: Boolean!
+  reminderLandlordUpcomingEntryDate: Boolean!
+  reminderTenantUpcomingEntryDate: Boolean!
+  reminderUnreadMessages: Boolean!
+}
+
+type UserSmsNotificationModel {
+  accountRemovedByAdmin: Boolean!
+  bookingRequestUpdated: Boolean!
+  contractCancellationOfTheLease: Boolean!
+  reminderNeedToPayRent: Boolean!
+  reminderUnreadMessages: Boolean!
+  reminderUpcomingDepartureDate: Boolean!
+}

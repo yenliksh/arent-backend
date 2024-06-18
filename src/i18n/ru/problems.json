@@ -1,0 +1,19 @@
+{
+  "SEND_SMS_CODE_RESTRICTION_PROBLEM": "Новый код можно будет получить через {secondsLeftToSendAgain} секунд",
+  "INVALID_VERIFICATION_PHONE_CODE_PROBLEM": "Неверный код. Попробуйте ещё раз.",
+  "EMAIL_ALREADY_USED_PROBLEM": "Текущий email уже используется",
+  "INNOPAY_SERVICE_BAD_REQUEST": "Ошибка при оплате: {errorDescription}",
+  "USER_ALREADY_HAS_THIS_CARD": "Карта уже привязана к текущему пользователю",
+  "CONTRACT_REQUEST_ALREADY_EXISTS": "Запрос на бронирование уже существует",
+  "CONTRACT_OFFER_ALREADY_EXISTS": "Предложение о сделке уже отправлено другому пользователю",
+  "PAYMENT_TRANSACTION_NOT_ACTIVE": "Транзакция не активна",
+  "APARTMENT_AD_COMPLAINT_ALREADY_EXISTS": "Жалоба на объявление уже отправлена",
+  "USER_COMPLAINT_ALREADY_EXISTS": "Жалоба на владельца уже отправлена",
+  "CHAT_IS_NOT_ACTIVE": "Чат недоступен",
+  "LONG_TERM_RENT_IS_RENTED_PROBLEM": "Объявление уже арендовано",
+  "DELETING_CARD_IS_ACTIVE_PROBLEM": "Карта привязана к активному объявлению, активной аренде или запросу на аренду",
+  "CHOSEN_DATES_IS_NOT_AVAILABLE_PROBLEM": "Эти даты заняты, выберите, пожалуйста, другие",
+  "REDUCE_THE_NUMBER_OF_GUESTS_PROBLEM": "Уменьшите количество гостей до {numberOfGuests}",
+  "SPECIFY_PAYMENT_METHOD": "Укажите способ оплаты",
+  "UNDEFINED_ERROR_GOOGLE_OAUTH": "Токен для запроса в Google сервис не является корректной"
+}

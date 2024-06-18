@@ -1,0 +1,35 @@
+import { GuarantorProps } from '@domains/user/domain/value-objects/guarantor.value-object';
+import { UserEmailNotificationProps } from '@domains/user/domain/value-objects/notifications/user-email-notification.value-object';
+import { UserPushNotificationProps } from '@domains/user/domain/value-objects/notifications/user-push-notification.value-object';
+import { UserSmsNotificationProps } from '@domains/user/domain/value-objects/notifications/user-sms-notification.value-object';
+import { UserOrmEntity } from '@infrastructure/database/entities/user.orm-entity';
+import { Model } from 'objection';
+import { GenderType, IdentityStatusType } from 'src/rental-context/domains/user/domain/types';
+declare type IUserIdentityRequests = Omit<UserOrmEntity, keyof Model>;
+export declare class UserIdentityRequestTypeormEntity implements IUserIdentityRequests {
+    static tableName: string;
+    id: string;
+    firstName: string;
+    isEmailVerified: boolean;
+    lastName: string;
+    middleName?: string;
+    email: string;
+    birthDate: string;
+    guarantors?: GuarantorProps[];
+    emailNotification: UserEmailNotificationProps;
+    smsNotification: UserSmsNotificationProps;
+    pushNotification: UserPushNotificationProps;
+    avatarKey?: string;
+    gender?: GenderType;
+    identityStatus: IdentityStatusType;
+    identityDocuments?: string[];
+    identityRejectReason?: string;
+    identityUpdatedAt: Date;
+    phone: string;
+    numberFines: number;
+    isPhoneApproved: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+    deletedAt?: Date;
+}
+export {};

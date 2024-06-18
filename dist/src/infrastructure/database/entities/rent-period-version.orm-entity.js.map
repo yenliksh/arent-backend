@@ -1,0 +1,1 @@
+{"version":3,"file":"rent-period-version.orm-entity.js","sourceRoot":"","sources":["../../../../../src/infrastructure/database/entities/rent-period-version.orm-entity.ts"],"names":[],"mappings":";;;AAAA,2GAA8F;AAG9F,MAAa,0BAA2B,SAAQ,2CAAmB;IACjE,MAAM,CAAC,MAAM,CAAC,IAAmD;QAC/D,OAAO,0BAA0B,CAAC,QAAQ,CAAC,IAAI,CAAC,CAAC;IACnD,CAAC;;AAHH,gEAWC;AANQ,oCAAS,GAAG,sBAAsB,CAAC"}

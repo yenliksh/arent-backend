@@ -1,0 +1,35 @@
+import { UserEmailNotificationProps } from '@domains/user/domain/value-objects/notifications/user-email-notification.value-object';
+import { UserPushNotificationProps } from '@domains/user/domain/value-objects/notifications/user-push-notification.value-object';
+import { UserSmsNotificationProps } from '@domains/user/domain/value-objects/notifications/user-sms-notification.value-object';
+import { UserOrmEntity } from '@infrastructure/database/entities/user.orm-entity';
+import { Model } from 'objection';
+import { GenderType, IdentityStatusType } from 'src/rental-context/domains/user/domain/types';
+import { Guarantor } from '../types';
+declare type IUser = Omit<UserOrmEntity, keyof Model>;
+export declare class UserTypeormEntity implements IUser {
+    static tableName: string;
+    id: string;
+    phone: string;
+    email: string;
+    firstName: string;
+    isEmailVerified: boolean;
+    lastName: string;
+    middleName?: string;
+    birthDate: string;
+    avatarKey?: string;
+    gender?: GenderType;
+    guarantors: Guarantor[];
+    emailNotification: UserEmailNotificationProps;
+    pushNotification: UserPushNotificationProps;
+    smsNotification: UserSmsNotificationProps;
+    identityStatus: IdentityStatusType;
+    identityDocuments?: string[];
+    identityRejectReason?: string;
+    identityUpdatedAt: Date;
+    isPhoneApproved: boolean;
+    numberFines: number;
+    createdAt: Date;
+    updatedAt: Date;
+    deletedAt?: Date;
+}
+export {};

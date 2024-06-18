@@ -1,0 +1,19 @@
+{
+  "SEND_SMS_CODE_RESTRICTION_PROBLEM": "The new code can be received in {secondsLeftToSendAgain} seconds",
+  "INVALID_VERIFICATION_PHONE_CODE_PROBLEM": "Invalid sms code",
+  "EMAIL_ALREADY_USED_PROBLEM": "Email already used",
+  "INNOPAY_SERVICE_BAD_REQUEST": "Bad payment request: {errorDescription}",
+  "USER_ALREADY_HAS_THIS_CARD": "User already has this card",
+  "CONTRACT_REQUEST_ALREADY_EXISTS": "Request to booking already exist",
+  "CONTRACT_OFFER_ALREADY_EXISTS": "Offer already exist",
+  "PAYMENT_TRANSACTION_NOT_ACTIVE": "Transaction not active",
+  "APARTMENT_AD_COMPLAINT_ALREADY_EXISTS": "Complaint already exist",
+  "USER_COMPLAINT_ALREADY_EXISTS": "Complaint already exist",
+  "CHAT_IS_NOT_ACTIVE": "Chat is not active",
+  "LONG_TERM_RENT_IS_RENTED_PROBLEM": "Apartment already rented",
+  "DELETING_CARD_IS_ACTIVE_PROBLEM": "This card is linked to active contract, active contract request or active apartment ad",
+  "CHOSEN_DATES_IS_NOT_AVAILABLE_PROBLEM": "Chosen dates is not available, please try to select another",
+  "REDUCE_THE_NUMBER_OF_GUESTS_PROBLEM": "Reduce the number of guests to {numberOfGuests}",
+  "SPECIFY_PAYMENT_METHOD": "Specify payment method",
+  "UNDEFINED_ERROR_GOOGLE_OAUTH": "Looks like token is not valid for Google oAuth2 service"
+}

@@ -1,0 +1,34 @@
+import { ApartmentAdRepository } from '@domain-repositories/apartment-ad/apartment-ad.repository';
+import { ChatRepository } from '@domain-repositories/chat/chat.repository';
+import { ContractRepository } from '@domain-repositories/contract/contract.repository';
+import { InnopayCardRepository } from '@domain-repositories/innopay-card/innopay-card.repository';
+import { PaymentTransactionRepository } from '@domain-repositories/payment-transaction/payment-transaction.repository';
+import { UserRepository } from '@domain-repositories/user/user.repository';
+import { UnitOfWork } from '@infrastructure/database/unit-of-work/unit-of-work';
+import { LongTermRentDocumentRepository } from '@infrastructure/elastic-search/repositories/long-term-rent.document-repository';
+import { ShortTermRentDocumentRepository } from '@infrastructure/elastic-search/repositories/short-term-rent.document-repository';
+import { CommandBus } from '@nestjs/cqrs';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Job } from 'bull';
+import { ContractOfferPubSubService } from '../services/contract-offer-pub-sub.service';
+import { AcceptContractOfferJobPayload } from '../types';
+export declare class AcceptContractOfferProcessor {
+    private readonly contractRepository;
+    private readonly chatRepository;
+    private readonly apartmentAdRepository;
+    private readonly innopayCardRepository;
+    private readonly paymentTransactionRepository;
+    private readonly userRepository;
+    private readonly longTermRentDocumentRepository;
+    private readonly shortTermRentDocumentRepository;
+    private readonly contractOfferPubSubService;
+    private readonly unitOfWork;
+    private commandBus;
+    private readonly eventEmitter;
+    constructor(contractRepository: ContractRepository, chatRepository: ChatRepository, apartmentAdRepository: ApartmentAdRepository, innopayCardRepository: InnopayCardRepository, paymentTransactionRepository: PaymentTransactionRepository, userRepository: UserRepository, longTermRentDocumentRepository: LongTermRentDocumentRepository, shortTermRentDocumentRepository: ShortTermRentDocumentRepository, contractOfferPubSubService: ContractOfferPubSubService, unitOfWork: UnitOfWork, commandBus: CommandBus, eventEmitter: EventEmitter2);
+    handle(job: Job<AcceptContractOfferJobPayload>): Promise<void>;
+    private payContractOrFail;
+    private findChatByContract;
+    private cancellationIntersectedContractsByDates;
+    private pausePublishingApartmentAd;
+}

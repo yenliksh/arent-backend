@@ -1,0 +1,75 @@
+version: '3.6'
+
+volumes:
+  postgres_data: null
+  elasticsearch-data:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: livin
+      POSTGRES_USER: purrweb
+      POSTGRES_PASSWORD: purrweb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  alpine-sqs:
+    image: roribio16/alpine-sqs2
+    container_name: alpine-sqs2
+    ports:
+      - '9324:9324'
+      - '9325:9325'
+    stdin_open: true
+    tty: true
+    volumes:
+      - .sqs/elasticmq.conf:/opt/config/elasticmq.conf
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.10.2
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+
+networks:
+  web:
+    driver: bridge

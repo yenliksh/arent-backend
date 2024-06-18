@@ -1,0 +1,1 @@
+{"version":3,"file":"id.value-object.js","sourceRoot":"","sources":["../../../../../../src/libs/ddd/domain/value-objects/id.value-object.ts"],"names":[],"mappings":";;;AAAA,yEAAiF;AAEjF,MAAsB,EAAG,SAAQ,+BAAmB;IAClD,YAAY,KAAa;QACvB,KAAK,CAAC,EAAE,KAAK,EAAE,CAAC,CAAC;IACnB,CAAC;IAED,IAAW,KAAK;QACd,OAAO,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC;IAC1B,CAAC;CAGF;AAVD,gBAUC"}

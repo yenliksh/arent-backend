@@ -1,0 +1,63 @@
+import { CommandBus } from '@nestjs/cqrs';
+import { CrudController, CrudRequest } from '@nestjsx/crud';
+import { ApartmentAdMediaModel } from 'src/rental-context/domains/apartment-ad/models/sub-models/apartment-ad-media.model';
+import { RejectShortTermRentsRequestsDto } from './dtos/reject-short-term-rents-request.dto';
+import { ShortTermRentRequestTypeormEntity } from './entities/short-term-rent-request.typeorm-entity';
+import { ShortTermRentRequestsAdminService } from './short-term-rent-requests-admin.service';
+export declare class ShortTermRentRequestsAdminController implements CrudController<ShortTermRentRequestTypeormEntity> {
+    service: ShortTermRentRequestsAdminService;
+    private commandBus;
+    constructor(service: ShortTermRentRequestsAdminService, commandBus: CommandBus);
+    get base(): CrudController<ShortTermRentRequestTypeormEntity>;
+    getOne(req: CrudRequest): Promise<{
+        cost: number;
+        media: {
+            photos: ApartmentAdMediaModel[];
+            videos: ApartmentAdMediaModel[];
+        };
+        id: string;
+        landlordId: string;
+        shortTermRentId: string;
+        apartmentCategory: import("../../../rental-context/domains/apartment-ad/domain/types").ApartmentCategory;
+        apartmentType: import("../../../rental-context/domains/apartment-ad/domain/types").ApartmentType;
+        numberOfGuests?: number | undefined;
+        numberOfRooms?: number | undefined;
+        country?: string | undefined;
+        city?: string | undefined;
+        street?: string | undefined;
+        region?: string | undefined;
+        houseNumber?: string | undefined;
+        lat?: number | undefined;
+        lng?: number | undefined;
+        description?: import("../../../rental-context/domains/apartment-ad/domain/value-objects/apartment-ad-description.value-object").ApartmentAdDescriptionProps | undefined;
+        rules?: import("../../../rental-context/domain-value-objects/apartment-rules.value-object").ApartmentRulesProps | undefined;
+        characteristics?: import("../../../rental-context/domain-value-objects/apartment-characteristics.value-object").ApartmentAdCharacteristicsProps | undefined;
+        legalCapacityType: import("../../../rental-context/domains/apartment-ad/domain/types").LegalCapacityType;
+        legalCapacityTinBin?: string | undefined;
+        legalCapacityCompanyName?: string | undefined;
+        legalCapacityAddress?: string | undefined;
+        currency: import("../../../rental-context/domains/apartment-ad/domain/types").CurrencyType;
+        status: import("../../../rental-context/domains/apartment-ad/domain/types").ApartmentAdStatusType[];
+        isApproved: boolean;
+        declineReason?: string | undefined;
+        rentBookingType: import("../../../infrastructure/enums").ShortTermRentBookingType;
+        cancellationPolicy?: import("../../../infrastructure/enums").ShortTermRentCancellationPolicyType | undefined;
+        arrivalTime?: string | undefined;
+        departureTime?: string | undefined;
+        innopayCardId?: string | undefined;
+        defaultPaymentMethod?: import("../../../infrastructure/enums").PaymentMethod | undefined;
+        bookingAccessInMonths?: number | undefined;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt?: Date | undefined;
+    } | undefined>;
+    getMany(req: CrudRequest): Promise<ShortTermRentRequestTypeormEntity[] | {
+        data: ShortTermRentRequestTypeormEntity[];
+        count: number;
+        total: number;
+        page: number;
+        pageCount: number;
+    } | undefined>;
+    approve(apartmentId: string): Promise<string>;
+    reject(apartmentId: string, dto: RejectShortTermRentsRequestsDto): Promise<string>;
+}
